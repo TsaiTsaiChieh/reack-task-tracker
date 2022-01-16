@@ -26,6 +26,7 @@
             "MethodDefinition": false,
             "ClassDeclaration": false
         }
-      }]
+      }],
+      "semi": [2, "never"]
     }
 }
