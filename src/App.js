@@ -4,10 +4,19 @@ import Header from './components/Header'
 function App() {
   return (
     <div className="container">
-      <Header/>
+      <Header title='Hello'/>
     </div>
-
   )
 }
+
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div className="container">
+//         <Header/>
+//       </div>
+//     )
+//   }
+// }
 
 export default App
