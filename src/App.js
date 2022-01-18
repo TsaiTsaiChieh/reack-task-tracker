@@ -1,22 +1,14 @@
 import React from 'react'
 import Header from './components/Header'
+import Tasks from './components/Tasks'
 
 function App() {
   return (
     <div className="container">
       <Header/>
+      <Tasks/>
     </div>
   )
 }
-
-// class App extends React.Component {
-//   render() {
-//     return (
-//       <div className="container">
-//         <Header/>
-//       </div>
-//     )
-//   }
-// }
 
 export default App
