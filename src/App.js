@@ -31,13 +31,20 @@ function App() {
   }
   // Toggle reminder
   const toggleReminder = (id) => {
-    // console.log(id)
     setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+  }
+  // Add Task
+  const addTask = (task) => {
+    // console.log(task)
+    const id = Math.floor(Math.random()* 10000) + 1
+    const newTask = {id, ...task}
+    console.log(task)
+    setTasks([...tasks, newTask])
   }
 
   return (
     <div className="container">
-      <AddTask/>
+      <AddTask onAdd={addTask}/>
       <Header />
       {tasks.length ?
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />

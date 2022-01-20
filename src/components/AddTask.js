@@ -1,13 +1,22 @@
 import React, {useState} from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-const AddTask = () => {
+const AddTask = ({onAdd}) => {
   const [task, setTask] = useState('')
   const [day, setDay] = useState('')
   const [reminder, setReminder] = useState(false)
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    if (!task) return alert('Please add a task')
+    onAdd({task, day, reminder})
+    setTask('')
+    setDay('')
+    setReminder(false)
+  }
+
   return (
-    <form className='add-form'>
+    <form className='add-form' onSubmit={onSubmit}>
       <div className='form-control'>
         <label>Task</label>
         <input 
@@ -29,6 +38,7 @@ const AddTask = () => {
         <input 
           type="checkbox" 
           value={reminder}
+          checked={reminder}
           onChange={(e)=> setReminder(e.currentTarget.checked)}/>
       </div>
 
@@ -37,8 +47,8 @@ const AddTask = () => {
   )
 }
 
-// AddTask.propTypes = {
-
-// }
+AddTask.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+}
 
 export default AddTask
