@@ -2,15 +2,15 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
 const AddTask = ({onAdd}) => {
-  const [task, setTask] = useState('')
+  const [text, setText] = useState('')
   const [day, setDay] = useState('')
   const [reminder, setReminder] = useState(false)
 
   const onSubmit = (e) => {
     e.preventDefault()
-    if (!task) return alert('Please add a task')
-    onAdd({task, day, reminder})
-    setTask('')
+    if (!text) return alert('Please add a task')
+    onAdd({text, day, reminder})
+    setText('')
     setDay('')
     setReminder(false)
   }
@@ -21,9 +21,9 @@ const AddTask = ({onAdd}) => {
         <label>Task</label>
         <input 
           type="text" 
-          value={task} 
+          value={text} 
           placeholder='Add Task' 
-          onChange={(e) => setTask(e.target.value)}/>
+          onChange={(e) => setText(e.target.value)}/>
       </div>
       <div className='form-control'>
         <label>Day & Time</label>
