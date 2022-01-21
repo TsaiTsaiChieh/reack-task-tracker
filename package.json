@@ -40,5 +40,8 @@
     "eslint": "^8.7.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.28.0"
+  },
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }
