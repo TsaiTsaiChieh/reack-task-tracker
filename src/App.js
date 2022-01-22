@@ -12,7 +12,7 @@ function App() {
       const tasksFromServer = await fetchTasks()
       setTasks(tasksFromServer)
     }
-    
+
     getTasks()
   },[])
 
@@ -22,13 +22,7 @@ function App() {
     const data = await res.json()
     return data
   }
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   };
-  // }, [input]);
-
+  
   // Delete task
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id))
