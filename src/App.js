@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import AddTask from './components/AddTask'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
@@ -6,6 +6,28 @@ import Tasks from './components/Tasks'
 function App() {
   const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([])
+
+  useEffect( () => {
+    const getTasks = async() => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+    
+    getTasks()
+  },[])
+
+  // Fetch Tasks
+  const fetchTasks = async () => {
+    const res = await fetch('http://localhost:5000/tasks')
+    const data = await res.json()
+    return data
+  }
+  // useEffect(() => {
+  //   effect
+  //   return () => {
+  //     cleanup
+  //   };
+  // }, [input]);
 
   // Delete task
   const deleteTask = (id) => {
